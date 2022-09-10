@@ -8,7 +8,9 @@ const Login = () => {
       <div className="login-banner-container">
         <h1>Avalie Filmes</h1>
         <p>Diga o que você achou do seu filme favorito</p>
-        <AuthImage />
+        <div className="login-banner-img">
+            <AuthImage />
+        </div>
       </div>
 
       <div className="login-card">

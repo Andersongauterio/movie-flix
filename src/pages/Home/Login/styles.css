@@ -2,52 +2,94 @@
   display: none;
 }
 
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .login-card {
-    margin: 40px;
-    padding: 40px;
-    background-color: #9E9E9E;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 4px;
+  margin: 20px;
+  padding: 40px 20px;
+  background-color: #6c6c6c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 4px;
+  height: 450px;
+  width: 100%;
 }
 
 .login-card h1 {
-    color: #ffff;
-    font-weight: 400;
-    margin-bottom: 20px;
+  color: #ffff;
+  font-weight: 400;
+  margin-bottom: 35px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 36px;
+}
+
+.base-input {
+  height: 50px;
+  width: 100%;
+}
+
+.base-input::placeholder {
+  color: #9e9e9e;
 }
 
 .login-card button {
-    margin-top: 40px;
-    background-color: #FFC700;
-    border: 0;
-    height: 50px;
-    width: 100%;
-    color: #000000;
-    font-weight: 700;
+  margin-top: 40px;
+  background-color: #ffc700;
+  border: 0;
+  height: 50px;
+  width: 100%;
+  color: #000000;
+  font-weight: 700;
+  font-size: 20px;
 }
 
 @media (min-width: 576px) {
+  .login-card {
+    margin: 40px;
+    padding: 40px 35px;
+  }
 }
 
 @media (min-width: 768px) {
+  .login-card {
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 40px 35px;
+  }
 }
 
 @media (min-width: 1200px) {
   .login-banner-container {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    justify-items: baseline;
+    margin-left: 10%;
+    margin-right: 0;
   }
 
-  .login-container {
-    display: flex;
-    flex-direction: row;
+  .login-banner-container h1 {
+    color: #ffff;
+    font-size: 48px;
+    margin-bottom: 15px;
+    margin-left: 30px;
+  }
+
+  .login-banner-container p {
+    color: #ffff;
+    font-size: 15px;
+    margin-bottom: 25px;
+    width: 240px;
+    margin-left: 30px;
   }
 
   .login-card {
-
-      width: 50%;
+    margin-left: 10%;
+    margin-right: 15%;
   }
 }
