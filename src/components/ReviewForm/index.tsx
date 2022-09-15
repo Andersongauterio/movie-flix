@@ -2,8 +2,15 @@ import './styles.css';
 
 const ReviewForm = () => {
   return (
-    <div>
-      <h1>Review Form</h1>
+    <div className="form-review-container">
+      <div className="form-review-input">
+        <input className="form-control"
+          type="text" 
+          placeholder="Deixe sua avaliação aqui" />
+      </div>
+      <div className="form-review-btn">
+        <button className="btn btn-primary">SALVAR AVALIAÇÃO</button>
+      </div>
     </div>
   );
 };

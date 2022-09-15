@@ -3,7 +3,7 @@ import './styles.css';
 
 const ReviewListing = () => {
   return (
-    <div>
+    <div className="reviewlisting-container">
       <ReviewCard />
       <ReviewCard />
       <ReviewCard />

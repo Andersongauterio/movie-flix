@@ -1,0 +1,9 @@
+.movie-details-container {
+    margin: 20px 10px;
+}
+
+.movie-details-title h1 {
+    color: #FFFF;
+    font-size: 30px;
+    letter-spacing: -0.015em;
+}

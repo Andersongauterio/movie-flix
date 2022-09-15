@@ -6,7 +6,7 @@ const MovieDetails = () => {
   return (
     <div className="movie-details-container">
       <div className="movie-details-title">
-        <h1>Tela detalhes do filme id: </h1>
+        <h1>Tela detalhes do filme id: 1 </h1>
       </div>
       <div className="movie-details-form">
           <ReviewForm />
