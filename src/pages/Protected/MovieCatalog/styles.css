@@ -1,0 +1,22 @@
+.movie-catalog-container {
+  margin: 15px;
+}
+
+.movie-catalog-title {
+  margin-bottom: 40px;
+}
+
+.movie-catalog-title h1 {
+  color: #ffff;
+  font-size: 24px;
+}
+
+.movie-catalog-list ul {
+    padding: 0;
+}
+
+.movie-catalog-list li {
+    list-style-type: none;
+    margin-bottom: 10px;
+    color: #ffff;
+}
