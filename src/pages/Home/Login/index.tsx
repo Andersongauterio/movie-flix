@@ -1,11 +1,11 @@
 import { ReactComponent as AuthImage } from 'assets/images/login-image.svg';
-import { useForm } from 'react-hook-form';
-import { requestBackendLogin } from 'util/requests';
-import { useContext } from 'react';
-import { AuthContext } from 'AuthContext';
 
-import { getTokenData } from 'util/auth';
-import { saveAuthData } from 'util/storage';
+import { useContext } from 'react';
+import { useForm } from 'react-hook-form';
+import { getTokenData } from '../../../util/auth';
+import { requestBackendLogin } from '../../../util/requests';
+import { saveAuthData } from '../../../util/storage';
+import { AuthContext } from 'AuthContext';
 
 import './styles.css';
 
@@ -17,12 +17,10 @@ type FormData = {
 const Login = () => {
   const { setAuthContextData } = useContext(AuthContext);
 
-  const {
-    handleSubmit,
-    formState: { },
-  } = useForm<FormData>();
+  const { register, handleSubmit } = useForm<FormData>();
 
   const onSubmit = (formData: FormData) => {
+
     requestBackendLogin(formData)
       .then((response) => {
         saveAuthData(response.data);
@@ -51,6 +49,7 @@ const Login = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-4">
             <input
+              {...register('username')}
               type="text"
               className="form-control base-input"
               placeholder="Email"
@@ -59,6 +58,7 @@ const Login = () => {
           </div>
           <div className="mb-2">
             <input
+              {...register('password')}
               type="password"
               className="form-control base-input"
               placeholder="Password"
