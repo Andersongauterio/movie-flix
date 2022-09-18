@@ -8,6 +8,7 @@ import { saveAuthData } from '../../../util/storage';
 import { AuthContext } from 'AuthContext';
 
 import './styles.css';
+import { useHistory } from 'react-router-dom';
 
 type FormData = {
   username: string;
@@ -19,6 +20,8 @@ const Login = () => {
 
   const { register, handleSubmit } = useForm<FormData>();
 
+  const history = useHistory();
+
   const onSubmit = (formData: FormData) => {
 
     requestBackendLogin(formData)
@@ -28,6 +31,7 @@ const Login = () => {
           authenticated: true,
           tokenData: getTokenData(),
         });
+        history.push('/movies');
       })
       .catch((error) => {
         console.log(error);

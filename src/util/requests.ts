@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import qs from 'qs';
+import history from './history';
 import { getAuthData } from './storage';
 
 export const BASE_URL =
@@ -52,5 +53,18 @@ axios.interceptors.request.use(
   function (error) {
     return Promise.reject(error);
   }
+);
+
+// Add a response interceptor
+axios.interceptors.response.use(
+	function (response) {
+		return response;
+	},
+	function (error) {
+		if (error.response.status === 401 || error.response.status === 403) {
+			history.push('/');
+		}
+		return Promise.reject(error);
+	}
 );
 
