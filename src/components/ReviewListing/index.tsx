@@ -1,12 +1,14 @@
 import ReviewCard from 'components/ReviewCard';
+import { Movie } from 'types/movie';
 import './styles.css';
 
-const ReviewListing = () => {
+type Props = {
+  movie: Movie | undefined;
+}
+
+const ReviewListing = ( { movie } : Props) => {
   return (
     <div className="reviewlisting-container">
-      <ReviewCard />
-      <ReviewCard />
-      <ReviewCard />
       <ReviewCard />
     </div>
   );
