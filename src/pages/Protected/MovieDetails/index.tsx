@@ -4,6 +4,7 @@ import ReviewListing from 'components/ReviewListing';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Movie } from 'types/movie';
+import { hasAnyRoles } from 'util/auth';
 import { requestBackend } from 'util/requests';
 import './styles.css';
 
@@ -23,10 +24,8 @@ const MovieDetails = () => {
       withCredentials: true,
     };
 
-    requestBackend(params)
-    .then((response) => {
+    requestBackend(params).then((response) => {
       setMovie(response.data);
-      console.log(response.data);
     });
   }, [movieId]);
 
@@ -36,10 +35,10 @@ const MovieDetails = () => {
         <h1>Tela detalhes do filme id: {movieId} </h1>
       </div>
       <div className="movie-details-form">
-        <ReviewForm />
+        {hasAnyRoles(['ROLE_MEMBER']) && <ReviewForm movieId={movieId} />}
       </div>
       <div className="movie-detials-review">
-        <ReviewListing movie={movie}/>
+        <ReviewListing movie={movie} />
       </div>
     </div>
   );

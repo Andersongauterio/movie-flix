@@ -1,6 +1,10 @@
 import './styles.css';
 
-const ReviewForm = () => {
+type Props = {
+  movieId: string;
+}
+
+const ReviewForm = ({movieId} : Props) => {
   return (
     <div className="form-review-container">
       <div className="form-review-input">
