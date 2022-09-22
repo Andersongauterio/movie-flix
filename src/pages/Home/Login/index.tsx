@@ -8,14 +8,23 @@ import { saveAuthData } from '../../../util/storage';
 import { AuthContext } from 'AuthContext';
 
 import './styles.css';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 type FormData = {
   username: string;
   password: string;
 };
 
+type LocationState = {
+  from: string;
+}
+
 const Login = () => {
+
+  const location = useLocation<LocationState>();
+
+  const { from } = location.state || { from: { pathname: '/movies'} };
+
   const { setAuthContextData } = useContext(AuthContext);
 
   const { register, handleSubmit } = useForm<FormData>();
@@ -31,7 +40,7 @@ const Login = () => {
           authenticated: true,
           tokenData: getTokenData(),
         });
-        history.push('/movies');
+        history.replace(from);
       })
       .catch((error) => {
         console.log(error);
