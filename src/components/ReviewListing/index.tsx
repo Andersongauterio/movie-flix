@@ -4,12 +4,16 @@ import './styles.css';
 
 type Props = {
   movie: Movie | undefined;
-}
+};
 
-const ReviewListing = ( { movie } : Props) => {
+const ReviewListing = ({ movie }: Props) => {
   return (
     <div className="reviewlisting-container">
-      <ReviewCard />
+      {movie?.reviews.map((review) => (
+        <div className="reviewlisting-container-review" key={review.id}>
+          <ReviewCard review={review} />
+        </div>
+      ))}
     </div>
   );
 };
