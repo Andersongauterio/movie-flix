@@ -3,7 +3,6 @@ import ReviewForm from 'components/ReviewForm';
 import ReviewListing from 'components/ReviewListing';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Movie } from 'types/movie';
 import { Review } from 'types/review';
 import { hasAnyRoles } from 'util/auth';
 import { requestBackend } from 'util/requests';
