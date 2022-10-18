@@ -30,7 +30,6 @@ const MovieDetails = () => {
   }, [movieId]);
 
   const handleInsertReview = (review: Review) => {
-    debugger;
     const clone = [...reviews];
     clone?.push(review);
     setReviews(clone);
