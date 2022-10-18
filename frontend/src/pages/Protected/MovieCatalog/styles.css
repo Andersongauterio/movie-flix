@@ -2,13 +2,8 @@
   margin: 15px;
 }
 
-.movie-catalog-title {
+.movie-catalog-filter {
   margin-bottom: 40px;
-}
-
-.movie-catalog-title h1 {
-  color: #ffff;
-  font-size: 24px;
 }
 
 .movie-catalog-list ul {

@@ -1,21 +1,22 @@
+import MovieCard from 'components/MovieCard';
+import MovieFilter from 'components/MovieFilter';
+import Pagination from 'components/Pagination';
 import './styles.css';
 
 const MovieCatalog = () => {
   return (
     <div className="movie-catalog-container">
-      <div className="movie-catalog-title">
-        <h1>Tela de listagem de filmes</h1>
+      <div className="movie-catalog-filter">
+        <MovieFilter />
       </div>
       <div className="movie-catalog-list">
         <ul>
           <li>
-            <a href="/movies/1">Acessar /movies/1</a>
-          </li>
-          <li>
-            <a href="/movies/2">Acessar /movies/2</a>
+            <MovieCard />
           </li>
         </ul>
       </div>
+      <Pagination /> 
     </div>
   );
 };
