@@ -6,7 +6,6 @@ const Pagination = () => {
 	return (
 		<ReactPaginate
 			pageCount={5}
-			marginPagesDisplayed={5}
 			containerClassName="pagination-container"
 			pageLinkClassName="pagination-item"
 			breakClassName="pagination-item"

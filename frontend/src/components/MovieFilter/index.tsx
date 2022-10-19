@@ -14,14 +14,14 @@ const MovieFilter = () => {
   const [selectGenres, setSelectGenres] = useState<Genre[]>([]);
 
   const { register, handleSubmit, setValue, getValues, control } =
-		useForm<GenreFilterData>();
+    useForm<GenreFilterData>();
 
   useEffect(() => {
     const params: AxiosRequestConfig = {
-        method: 'GET',
-        url: '/genres',
-        withCredentials: true,
-      };
+      method: 'GET',
+      url: '/genres',
+      withCredentials: true,
+    };
 
     requestBackend(params).then((response) => {
       setSelectGenres(response.data);
@@ -31,20 +31,23 @@ const MovieFilter = () => {
 
   return (
     <div className="movie-filter-container">
-      <Controller
-        name="genre"
-        control={control}
-        render={({ field }) => (
-          <Select
-            {...field}
-            options={selectGenres}
-            isClearable
-            placeholder="Gênero"
-            getOptionLabel={(genre: Genre) => genre.name}
-            getOptionValue={(genre: Genre) => String(genre.id)}
-          />
-        )}
-      />
+      <div className="movie-filter-genre-container">
+        <Controller
+          name="genre"
+          control={control}
+          render={({ field }) => (
+            <Select
+              {...field}
+              options={selectGenres}
+              isClearable
+              placeholder="Gênero"
+              classNamePrefix="movie-filter-select"
+              getOptionLabel={(genre: Genre) => genre.name}
+              getOptionValue={(genre: Genre) => String(genre.id)}
+            />
+          )}
+        />
+      </div>
     </div>
   );
 };

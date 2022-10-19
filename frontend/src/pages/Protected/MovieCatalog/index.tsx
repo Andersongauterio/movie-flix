@@ -10,13 +10,11 @@ const MovieCatalog = () => {
         <MovieFilter />
       </div>
       <div className="movie-catalog-list">
-        <ul>
-          <li>
-            <MovieCard />
-          </li>
-        </ul>
+        <MovieCard />
       </div>
-      <Pagination /> 
+      <div className="movie-catalog-pagination">
+        <Pagination />
+      </div>
     </div>
   );
 };
