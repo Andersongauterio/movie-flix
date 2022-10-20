@@ -10,11 +10,33 @@ export type GenreFilterData = {
   genre: Genre | null;
 };
 
-const MovieFilter = () => {
+type Props = {
+	onSubmitFilter: (data: GenreFilterData) => void;
+};
+
+const MovieFilter = ({ onSubmitFilter }: Props) => {
   const [selectGenres, setSelectGenres] = useState<Genre[]>([]);
 
-  const { control } =
+  const {  register, handleSubmit, setValue, getValues, control } =
     useForm<GenreFilterData>();
+
+    const onSubmit = (formData: GenreFilterData) => {
+		onSubmitFilter(formData);
+	};
+
+    const handleFormClear = () => {
+		setValue('genre', null);
+	};
+
+    const handleChangeGenre = (value: Genre) => {
+		setValue('genre', value);
+
+		const obj: GenreFilterData = {
+			genre: getValues('genre'),
+		};
+
+		onSubmitFilter(obj);
+	}; 
 
   useEffect(() => {
     const params: AxiosRequestConfig = {
@@ -42,6 +64,7 @@ const MovieFilter = () => {
               isClearable
               placeholder="Gênero"
               classNamePrefix="movie-filter-select"
+              onChange={(value) => handleChangeGenre(value as Genre)}
               getOptionLabel={(genre: Genre) => genre.name}
               getOptionValue={(genre: Genre) => String(genre.id)}
             />
