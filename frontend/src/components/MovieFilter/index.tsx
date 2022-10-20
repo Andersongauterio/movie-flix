@@ -11,32 +11,28 @@ export type GenreFilterData = {
 };
 
 type Props = {
-	onSubmitFilter: (data: GenreFilterData) => void;
+  onSubmitFilter: (data: GenreFilterData) => void;
 };
 
 const MovieFilter = ({ onSubmitFilter }: Props) => {
   const [selectGenres, setSelectGenres] = useState<Genre[]>([]);
 
-  const {  register, handleSubmit, setValue, getValues, control } =
+  const { handleSubmit, setValue, getValues, control } =
     useForm<GenreFilterData>();
 
-    const onSubmit = (formData: GenreFilterData) => {
-		onSubmitFilter(formData);
-	};
+  const onSubmit = (formData: GenreFilterData) => {
+    onSubmitFilter(formData);
+  };
 
-    const handleFormClear = () => {
-		setValue('genre', null);
-	};
+  const handleChangeGenre = (value: Genre) => {
+    setValue('genre', value);
 
-    const handleChangeGenre = (value: Genre) => {
-		setValue('genre', value);
+    const obj: GenreFilterData = {
+      genre: getValues('genre'),
+    };
 
-		const obj: GenreFilterData = {
-			genre: getValues('genre'),
-		};
-
-		onSubmitFilter(obj);
-	}; 
+    onSubmitFilter(obj);
+  };
 
   useEffect(() => {
     const params: AxiosRequestConfig = {
@@ -54,22 +50,24 @@ const MovieFilter = ({ onSubmitFilter }: Props) => {
   return (
     <div className="movie-filter-container">
       <div className="movie-filter-genre-container">
-        <Controller
-          name="genre"
-          control={control}
-          render={({ field }) => (
-            <Select
-              {...field}
-              options={selectGenres}
-              isClearable
-              placeholder="Gênero"
-              classNamePrefix="movie-filter-select"
-              onChange={(value) => handleChangeGenre(value as Genre)}
-              getOptionLabel={(genre: Genre) => genre.name}
-              getOptionValue={(genre: Genre) => String(genre.id)}
-            />
-          )}
-        />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Controller
+            name="genre"
+            control={control}
+            render={({ field }) => (
+              <Select
+                {...field}
+                options={selectGenres}
+                isClearable
+                placeholder="Gênero"
+                classNamePrefix="movie-filter-select"
+                onChange={(value) => handleChangeGenre(value as Genre)}
+                getOptionLabel={(genre: Genre) => genre.name}
+                getOptionValue={(genre: Genre) => String(genre.id)}
+              />
+            )}
+          />
+        </form>
       </div>
     </div>
   );

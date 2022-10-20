@@ -1,8 +1,10 @@
 import { AxiosRequestConfig } from 'axios';
+import MovieCard from 'components/MovieCard';
 import ReviewForm from 'components/ReviewForm';
 import ReviewListing from 'components/ReviewListing';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Movie } from 'types/movie';
 import { Review } from 'types/review';
 import { hasAnyRoles } from 'util/auth';
 import { requestBackend } from 'util/requests';
@@ -16,6 +18,7 @@ const MovieDetails = () => {
   const { movieId } = useParams<UrlParams>();
 
   const [reviews, setReviews] = useState<Review[]>([]);
+  const [movie, setMovie] = useState<Movie>();
 
   useEffect(() => {
     const params: AxiosRequestConfig = {
@@ -26,6 +29,7 @@ const MovieDetails = () => {
 
     requestBackend(params).then((response) => {
       setReviews(response.data.reviews);
+      setMovie(response.data as Movie);
     });
   }, [movieId]);
 
@@ -39,7 +43,7 @@ const MovieDetails = () => {
     <div className="movie-details-container">
      
       <div className="movie-details-title">
-        <h1>Tela detalhes do filme id: {movieId} </h1>
+        <MovieCard movie={movie}/>
       </div>
      
       <div className="movie-details-form">

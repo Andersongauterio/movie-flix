@@ -7,7 +7,7 @@
 }
 
 .movie-card-img {
-    padding: 16px 0 ;
+  padding: 16px 0;
 }
 
 .movie-card-img img {
@@ -17,6 +17,7 @@
 
 .movie-card-info {
   margin-left: 20px;
+  margin-right: 20px;
   padding: auto;
 }
 
@@ -36,10 +37,25 @@
   margin-bottom: 5px;
 }
 
-.movie-card-info p {
+.movie-card-info h4 {
   color: #ffff;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
+  letter-spacing: -0.015em;
+}
+
+.movie-card-synopsis {
+  border: #e1e1e1 1px solid;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 20px 0;
+}
+
+.movie-card-info p {
+  color: #9e9e9e;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
   letter-spacing: -0.015em;
 }
