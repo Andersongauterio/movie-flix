@@ -41,15 +41,19 @@ const MovieDetails = () => {
 
   return (
     <div className="movie-details-container">
-     
       <div className="movie-details-title">
-        <MovieCard movie={movie}/>
+        <MovieCard movie={movie} />
+        <div className="movie-details-synopsis">
+          <p>{movie?.synopsis}</p>
+        </div>
       </div>
-     
+
       <div className="movie-details-form">
-        {hasAnyRoles(['ROLE_MEMBER']) && (<ReviewForm movieId={movieId} onInsertReview={handleInsertReview} />)}
+        {hasAnyRoles(['ROLE_MEMBER']) && (
+          <ReviewForm movieId={movieId} onInsertReview={handleInsertReview} />
+        )}
       </div>
-     
+
       <div className="movie-detials-review">
         <ReviewListing reviews={reviews} />
       </div>
