@@ -1,9 +1,24 @@
+import { Movie } from 'types/movie';
 import './styles.css';
 
-const MovieCard = () => {
+type Props = {
+  movie: Movie;
+}
+
+const MovieCard = ( { movie } : Props) => {
   return (
     <div className="movie-card-container">
-      <h1>Movie Card</h1>
+      <div className="movie-card-img">
+        <img
+          src={movie.imgUrl}
+          alt={movie.title}
+        />
+      </div>
+      <div className="movie-card-info">
+        <h1>{movie.title}</h1>
+        <h3>{movie.year}</h3>
+        <p>{movie.synopsis}</p>
+      </div>
     </div>
   );
 };

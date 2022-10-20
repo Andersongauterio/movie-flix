@@ -13,7 +13,7 @@ export type GenreFilterData = {
 const MovieFilter = () => {
   const [selectGenres, setSelectGenres] = useState<Genre[]>([]);
 
-  const { register, handleSubmit, setValue, getValues, control } =
+  const { control } =
     useForm<GenreFilterData>();
 
   useEffect(() => {
