@@ -25,7 +25,6 @@ const MovieCatalog = () => {
 
     requestBackend(params).then((response) => {
       setPage(response.data);
-      console.log(response.data);
     });
   };
 
@@ -41,14 +40,17 @@ const MovieCatalog = () => {
       <div className="row">
         {page?.content.map((movie) => (
           <div key={movie.id} className="movie-catalog-list col-sm-6 col-lg-4 col-xl-3">
-            <Link to="/movies/1">
+            <Link to={`/movies/${movie.id}`}>
               <MovieCard movie={movie} />
             </Link>
           </div>
         ))}
       </div>
       <div className="movie-catalog-pagination">
-        <Pagination />
+        <Pagination 
+        pageCount={page ? page.totalPages : 0}
+        range={3}
+        onChange={getMovies}/>
       </div>
     </div>
   );
