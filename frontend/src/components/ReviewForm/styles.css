@@ -22,6 +22,7 @@
 
 .form-review-btn {
   display: flex;
+  font-weight: bold;
 }
 
 .form-review-btn button {
@@ -30,4 +31,21 @@
   border-radius: 5px;
   margin-top: 15px;
   border: none;
+  
 }
+
+@media (min-width: 576px) {
+  
+  .form-review-btn {
+    justify-content: center;
+  }
+
+  .form-review-btn button {
+    width: 400px;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+}
+
+

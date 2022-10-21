@@ -9,3 +9,15 @@
 .movie-catalog-list {
   margin-bottom: 30px;
 }
+
+@media (min-width: 768px) {
+  .movie-catalog-container {
+    margin: 30px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .movie-catalog-container {
+    margin: 30px 100px;
+  }
+}

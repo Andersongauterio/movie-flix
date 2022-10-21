@@ -44,7 +44,7 @@ const MovieCatalog = () => {
       withCredentials: true,
       params: {
         page: controlComponentsData.activePage,
-        size: 3,
+        size: 4,
         genreId: controlComponentsData.filterData.genre?.id,
       },
     };
@@ -79,7 +79,7 @@ const MovieCatalog = () => {
         <Pagination
           forcePage={page?.number}
           pageCount={page ? page.totalPages : 0}
-          range={3}
+          range={4}
           onChange={handlePageChange}
         />
       </div>
